@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: shreyash-book-api
+    runtime: node
+    plan: free
+    branch: main
+    rootDir: Experiment 8
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
