@@ -35,6 +35,21 @@ The application uses Express.js to define API endpoints and the built-in JSON mi
    ```
 5. The server runs at `http://localhost:3000`.
 
+## Deploying on Render
+
+This repository includes a root-level `render.yaml` Blueprint for deploying this API as a Node.js web service.
+
+1. Sign in to [Render](https://render.com/).
+2. From the dashboard, choose **New** → **Blueprint**.
+3. Connect your GitHub account if prompted, then select `shreyashsinha14/web-dev-lab` and the `main` branch.
+4. Render detects the root-level `render.yaml`. Review the `shreyash-book-api` web service and apply the Blueprint.
+5. Wait for the first deployment to finish. Render will show the public service URL.
+6. Test the live endpoints by adding `/health` and `/api/books` to that URL.
+
+The Blueprint sets the service root to `Experiment 8`, runs `npm install` to install dependencies, and starts the server with `npm start`. Render supplies the `PORT` environment variable, which the app reads automatically.
+
+**Important:** This practical uses an in-memory array, not a database. Books added or changed through the API are not durable and can be lost whenever the service restarts or is redeployed. Use a database for persistent production data.
+
 ## API Endpoints
 
 | Method | Endpoint | Operation |
