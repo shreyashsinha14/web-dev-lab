@@ -12,6 +12,11 @@ let books = [
 ];
 let nextId = 3;
 
+// Health check used by Render to verify that the API is running.
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "Book Collection API" });
+});
+
 // Welcome route
 app.get("/", (req, res) => {
   res.json({
@@ -136,6 +141,6 @@ app.use((req, res) => {
   res.status(404).json({ error: "Route not found." });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Book API server is running at http://localhost:${PORT}`);
 });
